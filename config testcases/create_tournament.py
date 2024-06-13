@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
+from datetime import datetime, timedelta
 
 
 driver = webdriver.Chrome()
@@ -11,10 +12,10 @@ time.sleep(5)
 
 # login django admin panel
 uname = driver.find_element(By.NAME, 'username')
-uname.send_keys('*********')
+uname.send_keys('********')
 
 password = driver.find_element(By.NAME, 'password')
-password.send_keys('*********')
+password.send_keys('********')
 
 login_button = driver.find_element(By.XPATH, '//*[@id="login-form"]/div[3]/input')
 login_button.click()
@@ -43,20 +44,37 @@ country.send_keys('BD')
 # Game Set
 game = driver.find_element(By.XPATH, '//*[@id="id_game"]')
 select = Select(game)
-select.select_by_visible_text("Boat Rush")
+select.select_by_visible_text("Amigos")
 
 # Set Game start and end time
+current_datetime = datetime.now() - timedelta(hours=6)
+end_datetime = current_datetime + timedelta(hours=24)
+
+# Format dates and times
+start_date_str = current_datetime.strftime('%Y-%m-%d')
+start_time_str = current_datetime.strftime('%H:%M:%S')
+end_date_str = end_datetime.strftime('%Y-%m-%d')
+end_time_str = end_datetime.strftime('%H:%M:%S')
+
+# Set start date and time
 start_date = driver.find_element(By.XPATH, '//*[@id="id_start_time_0"]')
-start_date.send_keys("2024-06-09")
+start_date.clear()
+start_date.send_keys(start_date_str)
 
 start_time = driver.find_element(By.XPATH, '//*[@id="id_start_time_1"]')
-start_time.send_keys('14:53:37')
+start_time.clear()
+start_time.send_keys(start_time_str)
 
+# Set end date and time
 end_date = driver.find_element(By.XPATH, '//*[@id="id_end_time_0"]')
-end_date.send_keys("2024-06-25")
+end_date.clear()
+end_date.send_keys(end_date_str)
 
 end_time = driver.find_element(By.XPATH, '//*[@id="id_end_time_1"]')
-end_time.send_keys('14:53:37')
+end_time.clear()
+end_time.send_keys(end_time_str)
+
+
 
 # title field
 title = driver.find_element(By.NAME, 'title')

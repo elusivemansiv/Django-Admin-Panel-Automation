@@ -12,10 +12,10 @@ time.sleep(5)
 
 # login django admin panel
 uname = driver.find_element(By.NAME, 'username')
-uname.send_keys('******')
+uname.send_keys('********')
 
 password = driver.find_element(By.NAME, 'password')
-password.send_keys('******')
+password.send_keys('********')
 
 login_button = driver.find_element(By.XPATH, '//*[@id="login-form"]/div[3]/input')
 login_button.click()
@@ -31,11 +31,11 @@ driver.get("https://admin.staging.go-games.gg/admin/tournaments/tournament/add/"
 
 # name field
 tournament_name = driver.find_element(By.NAME, 'name')
-tournament_name.send_keys('Automated tournament_02')
+tournament_name.send_keys('Automated tournament_03')
 
 # Application set
 application = driver.find_element(By.NAME, 'application')
-application.send_keys('gotest')
+application.send_keys('ghost')
 
 # country code field
 country = driver.find_element(By.NAME, 'country')
@@ -44,7 +44,7 @@ country.send_keys('BD')
 # Game Set
 game = driver.find_element(By.XPATH, '//*[@id="id_game"]')
 select = Select(game)
-select.select_by_visible_text("freekicks master")
+select.select_by_visible_text("Amigos")
 
 # Set Game start and end time
 current_datetime = datetime.now() - timedelta(hours=6)
@@ -100,6 +100,8 @@ if not top_tournament.is_selected():
 
 assert top_tournament.is_selected(), "Checkbox is not selected"
 
+# Tournament Type set
+# Prize Customization
 
 # Tournament trial configuration
 tournament_trial = driver.find_element(By.XPATH, '//*[@id="id_tournament_trial_conf-0-trial"]')

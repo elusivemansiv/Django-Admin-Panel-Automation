@@ -5,7 +5,7 @@ import time
 from datetime import datetime, timedelta
 
 driver = webdriver.Chrome()
-driver.get("https://admin.staging.go-games.gg/admin/login/?next=/admin/")
+driver.get("https://admin.dev.go-games.gg/admin/login/?next=/admin/")
 
 time.sleep(5)
 
@@ -22,16 +22,13 @@ login_button.click()
 time.sleep(5)
 
 # Automated Mission Creation
-# Navigate to mission offer section
-driver.get("https://admin.staging.go-games.gg/admin/tournaments/missionoffer/")
-time.sleep(5)
 
 # open mission creation form
-driver.get("https://admin.staging.go-games.gg/admin/tournaments/missionoffer/add/")
+driver.get("https://admin.dev.go-games.gg/admin/tournaments/missionoffer/add/")
 
 # Application set
 application = driver.find_element(By.NAME, 'application')
-application.send_keys('gotest')
+application.send_keys('testa-app')
 
 # country Set
 country = driver.find_element(By.XPATH, '//*[@id="id_countries"]')
@@ -40,12 +37,12 @@ select.select_by_visible_text("Bangladesh")
 
 # mission number
 mission = driver.find_element(By.NAME, 'mission')
-mission.send_keys('1')
+mission.send_keys('18')
 
 # variables(score) set
 variables = driver.find_element(By.NAME, 'variables')
 variables.clear()
-variables.send_keys('15')
+variables.send_keys('1')
 
 # reward set
 reward = driver.find_element(By.NAME, 'reeward')

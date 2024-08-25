@@ -6,16 +6,16 @@ from datetime import datetime, timedelta
 
 
 driver = webdriver.Chrome()
-driver.get("https://admin.staging.go-games.gg/admin/login/?next=/admin/")
+driver.get("https://admin.dev.go-games.gg/admin/login/?next=/admin/")
 
 time.sleep(5)
 
 # login django admin panel
 uname = driver.find_element(By.NAME, 'username')
-uname.send_keys('******')
+uname.send_keys('********')
 
 password = driver.find_element(By.NAME, 'password')
-password.send_keys('******')
+password.send_keys('********')
 
 login_button = driver.find_element(By.XPATH, '//*[@id="login-form"]/div[3]/input')
 login_button.click()
@@ -23,19 +23,19 @@ login_button.click()
 time.sleep(5)
 
 # Navigate to tournaments section
-driver.get("https://admin.staging.go-games.gg/admin/tournaments/tournament/")
-time.sleep(5)
+# driver.get("https://admin.staging.go-games.gg/admin/tournaments/tournament/")
+# time.sleep(5)
 
 # open tournament creation form
-driver.get("https://admin.staging.go-games.gg/admin/tournaments/tournament/add/")
+driver.get("https://admin.dev.go-games.gg/admin/tournaments/tournament/add/")
 
 # name field
 tournament_name = driver.find_element(By.NAME, 'name')
-tournament_name.send_keys('Automated tournament_02')
+tournament_name.send_keys('Automated tournament_pvp')
 
 # Application set
 application = driver.find_element(By.NAME, 'application')
-application.send_keys('gotest')
+application.send_keys('testa-app')
 
 # country code field
 country = driver.find_element(By.NAME, 'country')
@@ -44,7 +44,7 @@ country.send_keys('BD')
 # Game Set
 game = driver.find_element(By.XPATH, '//*[@id="id_game"]')
 select = Select(game)
-select.select_by_visible_text("Amigos")
+select.select_by_visible_text("Astro Run")
 
 # Set Game start and end time
 current_datetime = datetime.now() - timedelta(hours=6)

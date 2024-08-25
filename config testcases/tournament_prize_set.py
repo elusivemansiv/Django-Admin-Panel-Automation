@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 
 driver = webdriver.Chrome()
-driver.get("https://admin.dev.go-games.gg/admin/login/?next=/admin/")
+driver.get("https://admin.staging.go-games.gg/admin/login/?next=/admin/")
 
 time.sleep(5)
 
@@ -27,15 +27,15 @@ driver.get("https://admin.staging.go-games.gg/admin/tournaments/tournament/")
 time.sleep(5)
 
 # open tournament creation form
-driver.get("https://admin.dev.go-games.gg/admin/tournaments/tournament/add/")
+driver.get("https://admin.staging.go-games.gg/admin/tournaments/tournament/add/")
 
 # name field
 tournament_name = driver.find_element(By.NAME, 'name')
-tournament_name.send_keys('Automated tournament')
+tournament_name.send_keys('Automated tournament_02')
 
 # Application set
 application = driver.find_element(By.NAME, 'application')
-application.send_keys('testa-app')
+application.send_keys('gotest')
 
 # country code field
 country = driver.find_element(By.NAME, 'country')
@@ -44,7 +44,7 @@ country.send_keys('BD')
 # Game Set
 game = driver.find_element(By.XPATH, '//*[@id="id_game"]')
 select = Select(game)
-select.select_by_visible_text("Cricket Star")
+select.select_by_visible_text("Amigos")
 
 # Set Game start and end time
 current_datetime = datetime.now() - timedelta(hours=6)
@@ -103,7 +103,11 @@ assert top_tournament.is_selected(), "Checkbox is not selected"
 
 # Tournament Type set
 
+
 # Prize Customization
+# write code...
+
+
 
 
 # Click the Save button

@@ -11,10 +11,10 @@ time.sleep(5)
 
 # login django admin panel
 uname = driver.find_element(By.NAME, 'username')
-uname.send_keys('*****')
+uname.send_keys('********')
 
 password = driver.find_element(By.NAME, 'password')
-password.send_keys('*****')
+password.send_keys('********')
 
 login_button = driver.find_element(By.XPATH, '//*[@id="login-form"]/div[3]/input')
 login_button.click()
